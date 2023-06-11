@@ -19,6 +19,7 @@ body {
     padding-bottom: 20px;
     margin-bottom: 30px;
     background-color: #FFFFFF;
+    
   }
   
   .board {
@@ -27,10 +28,11 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    
   }
   
   .header h1 {
-    color: #01524B;
+    color: #f5f5f500;
     font-size: 42px;
     font-weight: 200;
   }
@@ -58,11 +60,13 @@ body {
   .x {
     color: #76CAD4;
     text-transform: uppercase;
+    font-weight: bold;
   }
   
   .o {
     color: #56BB8F;
     text-transform: uppercase;
+    font-weight: bold;
   }
   
   .btn-x {
@@ -71,8 +75,7 @@ body {
     height: 50px;
     width: 50px;
     margin-right: 10px;
-  }
-  
+  }  
   .btn-x:hover {
     background-color: #55B0BA;
     color: #FFFFFF;
@@ -92,13 +95,42 @@ body {
   }
   
   h1 span {
-    border: 1px solid #A5A5B1;
+    border: 1px solid #7d7d94;
     height: 120px;
     width: 120px;
     display: inline-block;
     padding-top: 30%;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 200;
+  }
+  svg {
+    font-family: 'Russo One', sans-serif;
+    position: absolute; 
+    width: 100%; height: 100%;
+    display: grid;
+    bottom:  300px;
+    left: 0px;
+    
+  }
+  svg text {
+    text-transform: uppercase;
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #e100ff;
+    font-size: 100px;
+  
+  }
+  @keyframes stroke {
+    0%   {
+      fill: rgba(72,138,20,0); stroke: rgb(255, 0, 221);
+      stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    70%  {fill: rgba(72,138,20,0); stroke: rgb(255, 0, 255); }
+    80%  {fill: rgba(72,138,20,0); stroke: rgb(255, 0, 234); stroke-width: 3; }
+    100% {
+      fill: rgb(255, 0, 0); stroke: rgba(54,95,160,0); 
+      stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
   }
   .btnop{
     background-color: #23D5AB;
@@ -130,6 +162,9 @@ body {
     width: 120px;
     display: inline-block;
     margin: -3px;
+    
+   
+    
   }
   
   .modal {
@@ -137,6 +172,7 @@ body {
     color: #01524B;
     height: 100%;
     overflow-y: auto !important;
+    
   }
   
   .modal-open {
@@ -174,6 +210,7 @@ body {
   #box4 span {
     border-top: 0;
     border-left: 0;
+    
   }
   
   #box2 span,
