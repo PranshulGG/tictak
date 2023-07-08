@@ -11,14 +11,64 @@
 
 </head>
 <body>
-  <audio id="myAudio" autoplay loop>
-    <source src="bg.mp3" type="audio/mp3">
-  </audio>
+  <button style="opacity:0 ; position: absolute;" id="play-button">Play</button>
+
+
+  <audio id="background-audio" autoplay loop >
+      <source src="bg.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+    
+    
   
-  <script>
-    var audio = document.getElementById("myAudio");
-    audio.volume = 0.1; // Adjust the volume between 0 (mute) and 1 (maximum)
-  </script>
+<script>
+  var audio = document.getElementById("background-audio");
+  audio.volume = 0.1;
+  // Get the button element by its ID
+var button = document.getElementById("play-button");
+
+// Define the interval in milliseconds (e.g., 2000ms = 2 seconds)
+var interval = 2000;
+
+// Function to simulate a click on the button
+function clickButton() {
+button.click();
+}
+
+// Start the interval to automatically click the button
+setInterval(clickButton, interval);
+
+  window.addEventListener('DOMContentLoaded', () => {
+const backgroundAudio = document.getElementById('background-audio');
+const playButton = document.getElementById('play-button');
+
+// Check if the audio is already playing and hasn't been paused
+const isAudioPlaying = () => !backgroundAudio.paused;
+
+// Save the current playback time in local storage when the page is refreshed
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('audioTime', backgroundAudio.currentTime);
+});
+
+// Restore the playback time from local storage, if available
+const storedTime = localStorage.getItem('audioTime');
+if (storedTime) {
+  backgroundAudio.currentTime = storedTime;
+}
+
+// Start playing the audio when the play button is clicked
+playButton.addEventListener('click', () => {
+  if (!isAudioPlaying()) {
+    backgroundAudio.play().catch((error) => {
+      console.error('Failed to start audio playback:', error);
+    });
+  }
+});
+});
+
+</script>
+  
+  
   
   <button id="myButton" class="kek" style="position: absolute; top: 90px; border: 1px solid rgba(250, 250, 250, 0);">
     <i style="color: rgb(0, 255, 0);" class="fa fa-xmark"></i> EXIT
