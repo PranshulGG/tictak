@@ -10,6 +10,8 @@
 	 align-content: center;
    background-image: url(Cool-Anime-4k-Wallpaper.jpg);
    background-size: cover;
+  
+   touch-action: none;
 }
  .paper {
 	 display: -webkit-box;
