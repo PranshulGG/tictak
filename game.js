@@ -159,7 +159,7 @@ function updateScore(board, player) {
         setTimeout(function() {
           drawTheWinnersLine(board);
           winner.innerHTML = "<h1>You loose !</h1>";
-        }, 1000);
+        }, 500);
 
         // Play the win sound
         var winSound = document.getElementById('winSound');
