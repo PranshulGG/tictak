@@ -115,30 +115,39 @@ if (element.hasChildNodes())  {
 //if spot on teh bord is empty board[i] == 0,
 // at then end of human turn  lunch ai() - computer move
 
-function set(index, player) {  
-    if(game) {
-       if(board[index] == 0) {
-           if (computer) {
-               if(player == human) {
-                var sign =  document.getElementById(humVal+index);
-                drawingWithDelay(sign, 0.3, 0.3);
-                board[index] = humVal;
-                console.log(board);
-                updateScore(board, player);
-                ai();  
-             }  else {
-                board[index] = comVal;
-                var sign =  document.getElementById(comVal+index);
-                setTimeout(function() { 
-                  drawingWithDelay(sign, 0.3, 0.3); 
-                  }, 500);
-                updateScore(board, player);   
-                }
-            } 
+function set(index, player) {
+  if (game) {
+    if (board[index] == 0) {
+      if (computer) {
+        if (player == human) {
+          var sign = document.getElementById(humVal + index);
+          drawingWithDelay(sign, 0.3, 0.3);
+          board[index] = humVal;
+          console.log(board);
+          updateScore(board, player);
+          ai();
+          playSound('pls.mp3'); // Play sound for human move
+        } else {
+          board[index] = comVal;
+          var sign = document.getElementById(comVal + index);
+          setTimeout(function () {
+            drawingWithDelay(sign, 0.3, 0.3);
+            playSound('pls.mp3'); // Play sound for computer move
+          }, 500);
+          updateScore(board, player);
         }
       }
-  console.log(board);  
+    }
+  }
+  console.log(board);
 }
+
+function playSound(soundFilePath) {
+  var audio = new Audio(soundFilePath);
+  audio.play();
+}
+
+
 
 // update score on the board, 
 // draw winners line and message for winner when checkWin() return true
@@ -150,7 +159,7 @@ function updateScore(board, player) {
         setTimeout(function() {
           drawTheWinnersLine(board);
           winner.innerHTML = "<h1>You loose !</h1>";
-        }, 1400);
+        }, 1000);
 
         // Play the win sound
         var winSound = document.getElementById('winSound');
