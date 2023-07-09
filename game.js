@@ -173,12 +173,12 @@ function init() {
         if (message === 'hover') {
           if (mouse.x >= singleButton.x && mouse.x <= singleButton.x1 && mouse.y >= singleButton.y && mouse.y <= singleButton.y1) {
             this.chooseMode();
-            this.drawText(centerWidth, marginTop + 140, 'white', "#ffe936", 12, '600', '15px', 'Audiowide', 'PLAYER VS PLAYER');
+            this.drawText(centerWidth, marginTop + 140, 'white', "#ffe936", 12, '600', '15px', 'Audiowide', 'COMPUTER');
             cursor.style.cursor = "pointer";
           }
           else if (mouse.x >= multiButton.x && mouse.x <= multiButton.x1 && mouse.y >= multiButton.y && mouse.y <= multiButton.y1) {
             this.chooseMode();
-            this.drawText(centerWidth, marginTop + 180, 'white', "#ffe936", 12, '600', '15px', 'Audiowide', 'COMPUTER');
+            this.drawText(centerWidth, marginTop + 180, 'white', "#ffe936", 12, '600', '15px', 'Audiowide', 'PLAYER VS PLAYER');
             cursor.style.cursor = "pointer";
           } else {
             this.chooseMode();
@@ -634,8 +634,8 @@ function init() {
       ctx.lineTo(centerWidth + 50, marginTop + 155);
       ctx.stroke();
       ctx.restore();
-      this.drawText(centerWidth, marginTop + 140, 'white', "#b041ff", 12, '600', '15px', 'Audiowide', 'PLAYER VS PLAYER');
-      this.drawText(centerWidth, marginTop + 180, 'white', "#b041ff", 12, '600', '15px', 'Audiowide', 'COMPUTER');
+      this.drawText(centerWidth, marginTop + 140, 'white', "#b041ff", 12, '600', '15px', 'Audiowide', 'COMPUTER');
+      this.drawText(centerWidth, marginTop + 180, 'white', "#b041ff", 12, '600', '15px', 'Audiowide', 'PLAYER VS PLAYER');
     };
 
     /*========================== Game core Scenario ==========================*/
